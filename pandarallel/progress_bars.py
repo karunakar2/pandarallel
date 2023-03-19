@@ -136,7 +136,7 @@ class ProgressBarsNotebookLab(ProgressBars):
             HBox(
                 [
                     IntProgress(0, 0, max, description="{:.2f}%".format(0)),
-                    Label("{} / {}".format(0, max)),
+                    Label(f"0 / {max}"),
                 ]
             )
             for max in maxs
@@ -161,7 +161,7 @@ class ProgressBarsNotebookLab(ProgressBars):
             if value >= bar.max:
                 bar.bar_style = "success"
 
-            label.value = "{} / {}".format(value, bar.max)
+            label.value = f"{value} / {bar.max}"
 
     def set_error(self, index: int) -> None:
         """Set a bar on error"""
