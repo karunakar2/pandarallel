@@ -10,7 +10,7 @@ class DataType(ABC):
 
     @staticmethod
     def get_work_extra(data: Any) -> Dict[str, Any]:
-        return dict()
+        return {}
 
     @staticmethod
     @abstractmethod
@@ -27,7 +27,7 @@ class DataType(ABC):
     def get_reduce_extra(
         data: Any, user_defined_function_kwargs: Dict[str, Any]
     ) -> Dict[str, Any]:
-        return dict()
+        return {}
 
     @staticmethod
     @abstractmethod

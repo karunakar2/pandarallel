@@ -34,9 +34,7 @@ def chunk(nb_item: int, nb_chunks: int, start_offset=0) -> List[slice]:
     if nb_item <= nb_chunks:
         return [slice(max(0, idx - start_offset), idx + 1) for idx in range(nb_item)]
 
-    quotient = nb_item // nb_chunks
-    remainder = nb_item % nb_chunks
-
+    quotient, remainder = divmod(nb_item, nb_chunks)
     quotients = [quotient] * nb_chunks
     remainders = [1] * remainder + [0] * (nb_chunks - remainder)
 
@@ -76,10 +74,7 @@ def df_indexed_like(df: DataFrame, axes: List[Index]) -> bool:
     -------
     Whether or not the data frame is indexed in the same wa as the axes.
     """
-    if isinstance(df, DataFrame):
-        return df.axes[0].equals(axes[0])
-
-    return False
+    return df.axes[0].equals(axes[0]) if isinstance(df, DataFrame) else False
 
 
 def get_pandas_version() -> Tuple[int, int]:

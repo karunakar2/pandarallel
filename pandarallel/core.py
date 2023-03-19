@@ -491,15 +491,15 @@ class pandarallel:
 
             print(message)
 
-            if ON_WINDOWS and verbose >= 2:
-                print()
-                print(
-                    (
-                        "WARNING: You are on Windows. If you detect any issue with "
-                        "pandarallel, be sure you checked out the Troubleshooting page:"
-                    )
+        if ON_WINDOWS and verbose >= 2:
+            print()
+            print(
+                (
+                    "WARNING: You are on Windows. If you detect any issue with "
+                    "pandarallel, be sure you checked out the Troubleshooting page:"
                 )
-                print("https://nalepae.github.io/pandarallel/troubleshooting/")
+            )
+            print("https://nalepae.github.io/pandarallel/troubleshooting/")
 
         progress_bars_in_user_defined_function = (
             ProgressBarsType.InUserDefinedFunction
